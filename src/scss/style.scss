@@ -1,6 +1,129 @@
-.testing {
-    width: '5O%';
-    height: "3px";
-    margin: '10px';
-    height: '5px';
+.height-adaptative {
+    height: 100vh;
+    background-color: #0a0d10;
+}
+
+.box-light-anomalies {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+    opacity: 1;
+    transition: opacity 350ms ease-in-out;
+}
+
+.box-light-anomalies .box-title {
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.box-light-anomalies.box-light-grey {
+    border-left: 5px solid #535353;
+}
+
+.box-light-anomalies.box-light-red {
+    border-left: 5px solid #d0181e;
+}
+
+.box-light-anomalies.box-light-green {
+    border-left: 5px solid #85DFBD;
+}
+
+.box-light-anomalies .box-value {
+    color: #0a0d10;
+    font-size: 2.5em;
+    display: block;
+}
+
+
+/* GLOBAL */
+@font-face {
+    font-family: "Lato Light";
+    src: url(fonts/Lato-Light.ttf);
+}
+
+@font-face {
+    font-family: "Lato Regular";
+    src: url(fonts/Lato-Regular.ttf);
+}
+
+body {
+    font-family: "Lato Regular";
+    margin: 0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container-large {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.block {
+    margin-bottom: 5rem;
+}
+
+.grid-container {
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        flex-direction: column;
+    }
+}
+
+.grid-item {
+    padding: 0 2rem;
+    flex: 50%;
+}
+
+
+.center {
+    text-align: center;
+}
+
+.white-text {
+    color: #ffffff;
+}
+
+.ext-box { display: table; height:100%;}
+
+.int-box { display: table-cell; vertical-align: middle; height: 100% }
+
+/* SEARCH BAR */
+
+.search {
+    width: 25%;
+    position: relative;
+    display: flex;
+    margin-left: 37.5%;
+}
+
+.searchTerm {
+    width: 100%;
+    border: 2px solid #535353;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.searchButton {
+    border-left: none;
+    background-color: transparent;
+    width: 40px;
+    height: 34px;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
 }
