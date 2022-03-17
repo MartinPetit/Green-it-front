@@ -59,6 +59,21 @@ body {
     margin: 0 auto;
 }
 
+.uppercase{
+    text-transform: uppercase;
+}
+
+.spacer-container{
+    margin-top: 150px;
+}
+
+.description-container{
+    width: 70%;
+    margin: auto auto auto auto;
+    max-width: 650px;
+    min-width: 300px;
+}
+
 .container-large {
     width: 70%;
     margin: 0 auto;
@@ -71,17 +86,18 @@ body {
 .grid-container {
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 @media (max-width: 600px) {
     .grid-container {
         flex-direction: column;
+        justify-content: center;
     }
 }
 
 .grid-item {
     padding: 0 2rem;
-    flex: 50%;
 }
 
 
