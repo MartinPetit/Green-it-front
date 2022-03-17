@@ -24,6 +24,16 @@
   padding: 1em 2em;
 }
 
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  .help-box {
+    margin: 0 5rem;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .help-box {
+    margin: 0;
+  }
+}
 .box-light-anomalies .box-title {
   text-transform: uppercase;
   white-space: nowrap;
@@ -103,7 +113,7 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  gap: 10rem;
+  gap: 2rem;
 }
 
 .reverse-row {
@@ -148,15 +158,20 @@ body {
 
 /* SEARCH BAR */
 .search {
-  width: 25%;
+  width: 35%;
   position: relative;
   display: flex;
-  margin-left: 37.5%;
+  margin: auto;
 }
 
+@media only screen and (max-width: 600px) {
+  .search {
+    width: 50%;
+  }
+}
 .searchTerm {
   width: 100%;
-  border-left: 2px solid #17D3BA;
+  border-left: none;
   border-bottom: 2px solid #17D3BA;
   border-top: none;
   border-right: none;
@@ -177,4 +192,22 @@ body {
   color: #fff;
   cursor: pointer;
   font-size: 20px;
+}
+
+.grid-content {
+  width: 50%;
+}
+
+.img-width {
+  width: 30%;
+}
+
+@media only screen and (max-width: 600px) {
+  .grid-content {
+    width: 75%;
+  }
+
+  .img-width {
+    width: 50%;
+  }
 }
