@@ -1,6 +1,8 @@
 .height-adaptative {
   height: 100vh;
-  background-color: #0a0d10;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .box-light-anomalies {
