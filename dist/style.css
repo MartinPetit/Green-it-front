@@ -7,6 +7,7 @@
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 10px 10px;
+  background: #fff;
   border: 1px solid #d0d0d0;
   border-radius: 5px;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
@@ -14,21 +15,30 @@
   transition: opacity 350ms ease-in-out;
 }
 
+.help-box {
+  margin: 0 15rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+  padding: 1em 2em;
+}
+
 .box-light-anomalies .box-title {
   text-transform: uppercase;
   white-space: nowrap;
 }
 
-.box-light-anomalies.box-light-grey {
-  border-left: 5px solid #535353;
+.box-light-anomalies.box-light-green-dark {
+  border-left: 5px solid #17D3BA;
 }
 
-.box-light-anomalies.box-light-red {
-  border-left: 5px solid #d0181e;
+.box-light-anomalies.box-light-green-middle {
+  border-left: 5px solid #6EE4A0;
 }
 
-.box-light-anomalies.box-light-green {
-  border-left: 5px solid #85DFBD;
+.box-light-anomalies.box-light-green-light {
+  border-left: 5px solid #B2F184;
 }
 
 .box-light-anomalies .box-value {
@@ -40,15 +50,16 @@
 /* GLOBAL */
 @font-face {
   font-family: "Lato Light";
-  src: url(fonts/Lato-Light.ttf);
+  src: url("fonts/Lato-Light.ttf");
 }
 @font-face {
   font-family: "Lato Regular";
-  src: url(fonts/Lato-Regular.ttf);
+  src: url("fonts/Lato-Regular.ttf");
 }
 body {
   font-family: "Lato Regular";
   margin: 0;
+  background-color: #f9f9f9;
 }
 
 .container {
@@ -61,7 +72,7 @@ body {
 }
 
 .spacer-container {
-  margin-top: 150px;
+  margin-top: 80px;
 }
 
 .description-container {
@@ -80,20 +91,40 @@ body {
   margin-bottom: 5rem;
 }
 
-.grid-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+.block-para {
+  margin-bottom: 2rem;
 }
 
+.grid-container {
+  width: 100%;
+  margin: auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10rem;
+}
+
+.reverse-row {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 900px) {
+  .grid-container {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
 @media (max-width: 600px) {
   .grid-container {
-    flex-direction: column;
-    justify-content: center;
+    flex-direction: column-reverse;
+    align-items: center;
   }
 }
 .grid-item {
   padding: 0 2rem;
+  flex: 80%;
 }
 
 .center {
@@ -125,22 +156,25 @@ body {
 
 .searchTerm {
   width: 100%;
-  border: 2px solid #535353;
+  border-left: 2px solid #17D3BA;
+  border-bottom: 2px solid #17D3BA;
+  border-top: none;
   border-right: none;
+  color: #17D3BA;
+  background: transparent;
   padding: 5px;
   height: 20px;
-  border-radius: 5px 0 0 5px;
   outline: none;
 }
 
 .searchButton {
-  border-left: none;
-  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid #17D3BA;
   width: 40px;
-  height: 34px;
+  background: transparent;
+  height: 32px;
   text-align: center;
   color: #fff;
-  border-radius: 0 5px 5px 0;
   cursor: pointer;
   font-size: 20px;
 }
