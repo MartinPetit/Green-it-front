@@ -17,8 +17,6 @@ class Search extends Component {
 
     rebuildIndex = () => {
         const {databaseList} = this.state
-        console.log("rebuildIndex")
-        console.log(databaseList)
         const dataToSearch = new JsSearch.Search("field2")
 
         dataToSearch.indexStrategy = new JsSearch.PrefixIndexStrategy()

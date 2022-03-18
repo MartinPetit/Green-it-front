@@ -1,55 +1,31 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
 import * as React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import background from "../images/image.webp";
 
-import Header from "./header"
-import "./layout.css"
-
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-        }
-      }
-    }
-  `)
-
-  return (
-    <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0 1.0875rem 1.45rem`,
-        }}
-      >
-        <main>{children}</main>
-        <footer
-          style={{
-            marginTop: `2rem`,
-          }}
-        >
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.com">Gatsby</a>
-        </footer>
-      </div>
-    </>
-  )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
+const Layout = ({children}) => {
+    return (
+        <>
+            <div className="height-adaptative block" style={{backgroundImage: `url(${background}`}}>
+                <div className="container-large" style={{height: "100%"}}>
+                    <div className="ext-box">
+                        <div className="int-box">
+                            <h1 className="center white-text">Indice national de Fragilité numérique</h1>
+                            <p className="center white-text">L'indice de fragilité numérique, par sa représentation
+                                graphique,
+                                révèle
+                                les zones
+                                d'exclusion numérique sur un territoire
+                                donné. Cet outil permet, que vous soyez une commune, un département ou une région de
+                                comparer
+                                votre
+                                indice de
+                                fragilité numérique avec les autres territoires.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <main>{children}</main>
+        </>
+    )
 }
 
 export default Layout
