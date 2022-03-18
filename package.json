@@ -1,0 +1,47 @@
+{
+  "name": "Green-IT",
+  "private": true,
+  "description": "Groupe 9 5IW3 - Thomas Lemoine, Martin Petit, Gachet Edouard, Valentin Harault",
+  "version": "1.0.0",
+  "author": "Thomas Lemoine, Martin Petit, Gachet Edouard, Valentin Harault",
+  "dependencies": {
+    "gatsby": "^4.9.3",
+    "gatsby-plugin-gatsby-cloud": "^4.9.1",
+    "gatsby-plugin-image": "^2.9.1",
+    "gatsby-plugin-manifest": "^4.9.1",
+    "gatsby-plugin-offline": "^5.9.1",
+    "gatsby-plugin-react-helmet": "^5.9.0",
+    "gatsby-plugin-sharp": "^4.9.1",
+    "gatsby-source-filesystem": "^4.9.1",
+    "gatsby-transformer-csv": "^4.9.0",
+    "gatsby-transformer-sharp": "^4.9.0",
+    "js-search": "^2.0.0",
+    "prop-types": "^15.8.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-helmet": "^6.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.5.1"
+  },
+  "keywords": [
+    "gatsby"
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
+}
