@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import * as JsSearch from "js-search"
+import {StaticImage} from "gatsby-plugin-image";
 
 class Search extends Component {
     state = {
@@ -49,22 +50,28 @@ class Search extends Component {
             <div>
                 <div style={{margin: "0 auto"}}>
                     <form onSubmit={this.handleSubmit}>
-                        <div style={{margin: "0 auto"}}>
-                            <label htmlFor="Search" style={{paddingRight: "10px"}}>
-                                Enter your search here
-                            </label>
+
+                        <div className="search">
                             <input
                                 id="Search"
                                 value={searchQuery}
                                 onChange={this.searchData}
-                                placeholder="Enter your search here"
-                                style={{margin: "0 auto", width: "400px"}}
+                                placeholder="Entrez votre recherche"
+                                className="searchTerm"
                             />
+
+                            <button type="submit" className="searchButton">
+                                <StaticImage
+                                    src="../images/search-icon.svg"
+                                    height={100}
+                                    quality={95}
+                                />
+                            </button>
                         </div>
+
                     </form>
                     <div>
-                        Number of items:
-                        {queryResults.length}
+                        Nombre de résultats : {queryResults.length}
                         <table
                             style={{
                                 width: "100%",
