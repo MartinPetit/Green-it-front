@@ -11,7 +11,7 @@ class Search extends Component {
         isLoading: true,
         isError: false,
         searchQuery: "",
-        selectedCity: {}
+        selectedCity: null
     }
 
 
@@ -46,112 +46,379 @@ class Search extends Component {
         e.preventDefault()
     }
 
+    setCity = (item) => {
+        console.log('city')
+        console.log(item)
+        this.setState({
+            selectedCity: item,
+            searchQuery: item.field1,
+            searchResults: [],
+        })
+    }
+
     render() {
         const {databaseList, searchResults, searchQuery, selectedCity} = this.state
-        console.log(searchResults)
         const queryResults = searchResults
 
         return (
             <div>
-                <div style={{margin: "0 auto"}}>
-                    <form onSubmit={this.handleSubmit}>
-
-                        <div className="search">
-                            <input
-                                id="Search"
-                                value={searchQuery}
-                                onChange={this.searchData}
-                                placeholder="Entrez votre recherche"
-                                className="searchTerm"
-                            />
-
-                            <button type="submit" className="searchButton">
-                                <StaticImage
-                                    src="../images/search-icon.svg"
-                                    height={100}
-                                    quality={95}
-                                />
-                            </button>
-                        </div>
-
-                    </form>
+                <div className="container block">
+                    <h2 className="center">Rechercher votre commune</h2>
                     <div>
-                        Nombre de résultats : {queryResults.length}
-                        <table
-                            style={{
-                                width: "100%",
-                                borderCollapse: "collapse",
-                                borderRadius: "4px",
-                                border: "1px solid #d3d3d3",
-                            }}
-                        >
-                            <thead style={{border: "1px solid #808080"}}>
-                            <tr>
-                                <th
-                                    style={{
-                                        textAlign: "left",
-                                        padding: "5px",
-                                        fontSize: "14px",
-                                        fontWeight: 600,
-                                        borderBottom: "2px solid #d3d3d3",
-                                        cursor: "pointer",
-                                    }}
-                                >
-                                    Code Iris
-                                </th>
-                                <th
-                                    style={{
-                                        textAlign: "left",
-                                        padding: "5px",
-                                        fontSize: "14px",
-                                        fontWeight: 600,
-                                        borderBottom: "2px solid #d3d3d3",
-                                        cursor: "pointer",
-                                    }}
-                                >
-                                    Commune
-                                </th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {queryResults.map((item, key) => {
-                                return (
-                                    <tr key={`row_${key}`}>
-                                        <td
-                                            style={{
-                                                fontSize: "14px",
-                                                border: "1px solid #d3d3d3",
-                                            }}
-                                        >
-                                            {item.field2}
-                                        </td>
-                                        <td
-                                            style={{
-                                                fontSize: "14px",
-                                                border: "1px solid #d3d3d3",
-                                            }}
-                                        >
-                                            {item.field1}
-                                        </td>
-                                        <td
-                                            style={{
-                                                fontSize: "14px",
-                                                border: "1px solid #d3d3d3",
-                                            }}
-                                        >
-                                            <button onClick={() => this.setState({
-                                                selectedCity: item
-                                            })}>
-                                                Sélectionner
-                                            </button>
-                                        </td>
-                                    </tr>
-                                )
-                            })}
-                            </tbody>
-                        </table>
+                        <div style={{margin: "0 auto"}}>
+                            <form onSubmit={this.handleSubmit}>
+
+                                <div className="search">
+                                    <input
+                                        id="Search"
+                                        value={searchQuery}
+                                        onChange={this.searchData}
+                                        placeholder="Entrez votre recherche"
+                                        className="searchTerm"
+                                    />
+
+                                    <button type="submit" className="searchButton">
+                                        <StaticImage
+                                            src="../images/search-icon.svg"
+                                            height={100}
+                                            quality={95}
+                                        />
+                                    </button>
+                                </div>
+
+                            </form>
+                            {searchResults.length > 0 &&
+                                <div>
+                                    Nombre de résultats : {queryResults.length}
+                                    <table
+                                        style={{
+                                            width: "100%",
+                                            borderCollapse: "collapse",
+                                            borderRadius: "4px",
+                                            border: "1px solid #d3d3d3",
+                                        }}
+                                    >
+                                        <thead style={{border: "1px solid #808080"}}>
+                                        <tr>
+                                            <th
+                                                style={{
+                                                    textAlign: "left",
+                                                    padding: "5px",
+                                                    fontSize: "14px",
+                                                    fontWeight: 600,
+                                                    borderBottom: "2px solid #d3d3d3",
+                                                    cursor: "pointer",
+                                                }}
+                                            >
+                                                Code Iris
+                                            </th>
+                                            <th
+                                                style={{
+                                                    textAlign: "left",
+                                                    padding: "5px",
+                                                    fontSize: "14px",
+                                                    fontWeight: 600,
+                                                    borderBottom: "2px solid #d3d3d3",
+                                                    cursor: "pointer",
+                                                }}
+                                            >
+                                                Commune
+                                            </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {queryResults.map((item, key) => {
+                                            return (
+                                                <tr key={`row_${key}`}>
+                                                    <td
+                                                        style={{
+                                                            fontSize: "14px",
+                                                            border: "1px solid #d3d3d3",
+                                                        }}
+                                                    >
+                                                        {item.field2}
+                                                    </td>
+                                                    <td
+                                                        style={{
+                                                            fontSize: "14px",
+                                                            border: "1px solid #d3d3d3",
+                                                        }}
+                                                    >
+                                                        {item.field1}
+                                                    </td>
+                                                    <td
+                                                        style={{
+                                                            fontSize: "14px",
+                                                            border: "1px solid #d3d3d3",
+                                                        }}
+                                                    >
+                                                        <button onClick={() => this.setCity(item)}>
+                                                            Sélectionner
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            )
+                                        })}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            }
+
+                        </div>
                     </div>
                 </div>
+
+                {selectedCity &&
+                    <div className="container">
+                        <div className="box-light-anomalies help-box">
+                            <p className="center">Un indice élevé indique une fragilité numérique plus grande.
+                                Le calcul des indicateurs étant relatif par rapport aux autres communes, la moyenne de
+                                chaque
+                                indicateur est de 100.</p>
+                            <StaticImage
+                                src="../images/light.svg"
+                                width={100}
+                                quality={95}
+                            />
+                        </div>
+                        <div>
+                            <h2 className="center uppercase spacer-container">Score global
+                                <span style={{
+                                    display: 'block',
+                                    height: '6px',
+                                    backgroundColor: '#17D3BA',
+                                    width: '165px',
+                                    position: 'relative',
+                                    left: '47%',
+                                    marginTop: '5px',
+                                    borderRadius: '5px'
+                                }}/>
+                            </h2>
+
+                            <div className="grid-container">
+                                <div className="grid-content">
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-dark">
+                                            <span className="box-title">{selectedCity.field22}</span>
+                                            <span className="box-value">{Math.round(selectedCity.field23)}</span>
+                                        </div>
+                                    </div>
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-middle">
+                                            <span className="box-title">{selectedCity.field1}</span>
+                                            <span className="box-value">{Math.round(selectedCity.field6)}</span>
+                                        </div>
+                                    </div>
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-light">
+                                            <span className="box-title">{selectedCity.field14}</span>
+                                            <span className="box-value">{Math.round(selectedCity.field15)}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="img-width">
+                                    <StaticImage
+                                        src="../images/score.svg"
+                                        quality={95}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 className="center uppercase spacer-container">Accès à l'information
+                                <span style={{
+                                    display: 'block',
+                                    height: '6px',
+                                    backgroundColor: '#17D3BA',
+                                    width: '165px',
+                                    position: 'relative',
+                                    left: '51%',
+                                    marginTop: '5px',
+                                    borderRadius: '5px'
+                                }}/>
+                            </h2>
+                            <p className="center description-container block-para">Identifier des territoires mal
+                                couverts
+                                par
+                                une offre de service d'information ou des populations qui auront des difficultés à
+                                comprendre
+                                l'information.</p>
+                            <div className="grid-container block reverse-row">
+                                <div className="grid-content">
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-dark">
+                                            <span className="box-title">{selectedCity.field22}</span>
+                                            <span className="box-value">10</span>
+                                        </div>
+                                        <div className="box-light-anomalies box-light-green-middle">
+                                            <span className="box-title">{selectedCity.field1}</span>
+                                            <span className="box-value">{Math.round(selectedCity.field8)}</span>
+                                        </div>
+                                        <div className="box-light-anomalies box-light-green-light">
+                                            <span className="box-title">{selectedCity.field14}</span>
+                                            <span className="box-value">10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="img-width">
+                                    <StaticImage
+                                        src="../images/read.svg"
+                                        quality={95}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 className="center uppercase spacer-container">Accès aux interfaces numériques
+                                <span style={{
+                                    display: 'block',
+                                    height: '6px',
+                                    backgroundColor: '#17D3BA',
+                                    width: '300px',
+                                    position: 'relative',
+                                    left: '48%',
+                                    marginTop: '5px',
+                                    borderRadius: '5px'
+                                }}/>
+                            </h2>
+                            <p className="center description-container block-para">Capacité d'usage des interfaces
+                                numériques :
+                                Identifier des populations
+                                parmi lesquelles s'observe une fréquence d'illectronisme ou difficulté à utiliser
+                                internet.</p>
+                            <div className="grid-container block">
+                                <div className="grid-content">
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-dark">
+                                            <span className="box-title">{selectedCity.field22}</span>
+                                            <span className="box-value">10</span>
+                                        </div>
+                                    </div>
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-middle">
+                                            <span className="box-title">{selectedCity.field1}</span>
+                                            <span className="box-value">{Math.round(selectedCity.field7)}</span>
+                                        </div>
+                                    </div>
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-light">
+                                            <span className="box-title">{selectedCity.field14}</span>
+                                            <span className="box-value">10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="img-width">
+                                    <StaticImage
+                                        src="../images/computer.svg"
+                                        quality={95}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 className="center uppercase spacer-container">Compétences numériques
+                                <span
+                                    style={{
+                                        display: 'block',
+                                        height: '6px',
+                                        backgroundColor: '#17D3BA',
+                                        width: '200px',
+                                        position: 'relative',
+                                        left: '51%',
+                                        marginTop: '5px',
+                                        borderRadius: '5px'
+                                    }}/>
+                            </h2>
+                            <p className="center description-container block-para">Identifier des populations parmi
+                                lesquelles
+                                s'observent des difficultés à accomplir des procédures administratives</p>
+                            <div className="grid-container block reverse-row">
+                                <div className="grid-content">
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-dark">
+                                            <span className="box-title">{selectedCity.field22}</span>
+                                            <span className="box-value">10</span>
+                                        </div>
+                                    </div>
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-middle">
+                                            <span className="box-title">{selectedCity.field1}</span>
+                                            <span className="box-value">{Math.round(selectedCity.field10)}</span>
+                                        </div>
+                                    </div>
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-light">
+                                            <span className="box-title">{selectedCity.field14}</span>
+                                            <span className="box-value">10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="img-width">
+                                    <StaticImage
+                                        src="../images/numerics.svg"
+                                        quality={95}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h2 className="center uppercase spacer-container">Compétences administratives
+                                <span
+                                    style={{
+                                        display: 'block',
+                                        height: '6px',
+                                        backgroundColor: '#17D3BA',
+                                        width: '220px',
+                                        position: 'relative',
+                                        left: '52%',
+                                        marginTop: '5px',
+                                        borderRadius: '5px'
+                                    }}/>
+                            </h2>
+                            <p className="center description-container block-para">Identifier des territoires mal
+                                couverts
+                                par
+                                une offre de
+                                service d'information ou des populations qui auront des difficultés à comprendre
+                                l'information.</p>
+                            <div className="grid-container block">
+                                <div className="grid-content">
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-dark">
+                                            <span className="box-title">{selectedCity.field22}</span>
+                                            <span className="box-value">10</span>
+                                        </div>
+                                    </div>
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-middle">
+                                            <span className="box-title">{selectedCity.field1}</span>
+                                            <span className="box-value">{Math.round(selectedCity.field9)}</span>
+                                        </div>
+                                    </div>
+                                    <div className="grid-item">
+                                        <div className="box-light-anomalies box-light-green-light">
+                                            <span className="box-title">{selectedCity.field14}</span>
+                                            <span className="box-value">10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="img-width">
+                                    <StaticImage
+                                        src="../images/photocopie.svg"
+                                        quality={95}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                }
+
+
             </div>
         )
     }
