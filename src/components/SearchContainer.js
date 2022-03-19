@@ -3,6 +3,7 @@ import * as JsSearch from "js-search"
 import {StaticImage} from "gatsby-plugin-image";
 
 class Search extends Component {
+
     state = {
         databaseList: this.props.data.allDatabaseCsv.nodes,
         search: [],
@@ -10,7 +11,9 @@ class Search extends Component {
         isLoading: true,
         isError: false,
         searchQuery: "",
+        selectedCity: {}
     }
+
 
     componentDidMount() {
         this.rebuildIndex()
@@ -44,8 +47,10 @@ class Search extends Component {
     }
 
     render() {
-        const {databaseList, searchResults, searchQuery} = this.state
-        const queryResults = searchQuery === "" ? databaseList : searchResults
+        const {databaseList, searchResults, searchQuery, selectedCity} = this.state
+        console.log(searchResults)
+        const queryResults = searchResults
+
         return (
             <div>
                 <div style={{margin: "0 auto"}}>
@@ -104,7 +109,7 @@ class Search extends Component {
                                         cursor: "pointer",
                                     }}
                                 >
-                                    Nom Com
+                                    Commune
                                 </th>
                             </tr>
                             </thead>
@@ -127,6 +132,18 @@ class Search extends Component {
                                             }}
                                         >
                                             {item.field1}
+                                        </td>
+                                        <td
+                                            style={{
+                                                fontSize: "14px",
+                                                border: "1px solid #d3d3d3",
+                                            }}
+                                        >
+                                            <button onClick={() => this.setState({
+                                                selectedCity: item
+                                            })}>
+                                                Sélectionner
+                                            </button>
                                         </td>
                                     </tr>
                                 )

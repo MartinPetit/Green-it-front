@@ -4,9 +4,7 @@ import {StaticImage} from "gatsby-plugin-image"
 import "../style/style.css"
 
 import Layout from "../components/layout"
-import Seo from "../components/seo"
 import Search from "../components/SearchContainer";
-import background from "../images/image.webp";
 
 const IndexPage = () => {
     const data = useStaticQuery(graphql`
@@ -34,15 +32,11 @@ const IndexPage = () => {
         <Layout>
 
             <div className="container block">
-                <h2 className="center">Recherche votre commune</h2>
-            </div>
-
-            <div className="container block">
+                <h2 className="center">Rechercher votre commune</h2>
                 <div>
                     <Search data={data}/>
                 </div>
             </div>
-
 
             <div className="container">
                 <div className="box-light-anomalies help-box">
