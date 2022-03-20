@@ -1,28 +1,22 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
 <h1 align="center">
   Green IT 
 </h1>
 
 ## 🚀 Lancement
 
-1. **Lancer le serveur de développement.**
+**Lancer le serveur de développement.**
 
-    ```shell
+Nous n'avons pas de Docker, le projet se run facilement.
+
+Requis : node16, yarn
+
     cd  Green-it-front/
     yarn install
     yarn run start
-    ```
 
-4. **Open the source code and start editing!**
+ℹ️ Lors de la compilation, l'étape ```source and transform nodes``` peut prendre jusqu'à 5 minutes car le .CSV est indexé.
 
    Le site est dispo à l'adresse suivante `http://localhost:8000`!
-
-   Ouvrez le répertoire `my-default-starter` dans l'éditeur de code de votre choix et modifiez `src/pages/index.js`.
-   Enregistrez vos modifications et le navigateur se mettra à jour en temps réel !
 
 ## 🧐 Document de rendu
 
