@@ -209,6 +209,11 @@ body {
     width: 30%
 }
 
+#table-search {
+    margin-right: 15rem;
+    margin-left: 15rem;
+}
+
 @media only screen and (max-width: 600px) {
     .grid-content {
         width: 75%
@@ -217,5 +222,33 @@ body {
     .img-width {
         width: 50%
     }
+
+    #table-search {
+        margin-right: 0;
+        margin-left: 0;
+    }
 }
+
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+    #table-search {
+        margin-right: 5rem;
+        margin-left: 5rem;
+    }
+}
+
+.btn {
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    text-decoration: underline;
+}
+
+th {
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 1px solid #0a0d10;
+}
+
 

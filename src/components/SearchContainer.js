@@ -88,38 +88,26 @@ class Search extends Component {
 
                             </form>
                             {searchResults.length > 0 &&
-                                <div>
-                                    Nombre de résultats : {queryResults.length}
+                                <div id="table-search" className="box-light-anomalies">
+                                    {/*Nombre de résultats : {queryResults.length}*/}
                                     <table
                                         style={{
                                             width: "100%",
-                                            borderCollapse: "collapse",
-                                            borderRadius: "4px",
-                                            border: "1px solid #d3d3d3",
+                                            border: "none",
                                         }}
                                     >
                                         <thead style={{border: "1px solid #808080"}}>
                                         <tr>
                                             <th
                                                 style={{
-                                                    textAlign: "left",
-                                                    padding: "5px",
-                                                    fontSize: "14px",
-                                                    fontWeight: 600,
-                                                    borderBottom: "2px solid #d3d3d3",
-                                                    cursor: "pointer",
+                                                    padding: "5px 0 5px 5px",
                                                 }}
                                             >
                                                 Code Iris
                                             </th>
                                             <th
                                                 style={{
-                                                    textAlign: "left",
-                                                    padding: "5px",
-                                                    fontSize: "14px",
-                                                    fontWeight: 600,
-                                                    borderBottom: "2px solid #d3d3d3",
-                                                    cursor: "pointer",
+                                                    padding: "5px 5px 5px 0",
                                                 }}
                                             >
                                                 Commune
@@ -132,29 +120,14 @@ class Search extends Component {
                                                 <tr key={`row_${key}`}>
                                                     <td
                                                         style={{
-                                                            fontSize: "14px",
-                                                            border: "1px solid #d3d3d3",
+                                                            border: "none",
                                                         }}
                                                     >
                                                         {item.field2}
                                                     </td>
-                                                    <td
-                                                        style={{
-                                                            fontSize: "14px",
-                                                            border: "1px solid #d3d3d3",
-                                                        }}
+                                                    <td className="btn" onClick={() => this.setCity(item)}
                                                     >
                                                         {item.field1}
-                                                    </td>
-                                                    <td
-                                                        style={{
-                                                            fontSize: "14px",
-                                                            border: "1px solid #d3d3d3",
-                                                        }}
-                                                    >
-                                                        <button onClick={() => this.setCity(item)}>
-                                                            Sélectionner
-                                                        </button>
                                                     </td>
                                                 </tr>
                                             )
