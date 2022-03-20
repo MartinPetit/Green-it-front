@@ -222,7 +222,7 @@ class Search extends Component {
                                     <div className="grid-item">
                                         <div className="box-light-anomalies box-light-green-dark">
                                             <span className="box-title">{selectedCity.field22}</span>
-                                            <span className="box-value">10</span>
+                                            <span className="box-value">{Math.round(selectedCity.field25)}</span>
                                         </div>
                                         <div className="box-light-anomalies box-light-green-middle">
                                             <span className="box-title">{selectedCity.field1}</span>
@@ -230,7 +230,7 @@ class Search extends Component {
                                         </div>
                                         <div className="box-light-anomalies box-light-green-light">
                                             <span className="box-title">{selectedCity.field14}</span>
-                                            <span className="box-value">10</span>
+                                            <span className="box-value">{Math.round(selectedCity.field17)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -266,7 +266,7 @@ class Search extends Component {
                                     <div className="grid-item">
                                         <div className="box-light-anomalies box-light-green-dark">
                                             <span className="box-title">{selectedCity.field22}</span>
-                                            <span className="box-value">10</span>
+                                            <span className="box-value">{Math.round(selectedCity.field24)}</span>
                                         </div>
                                     </div>
                                     <div className="grid-item">
@@ -278,7 +278,7 @@ class Search extends Component {
                                     <div className="grid-item">
                                         <div className="box-light-anomalies box-light-green-light">
                                             <span className="box-title">{selectedCity.field14}</span>
-                                            <span className="box-value">10</span>
+                                            <span className="box-value">{Math.round(selectedCity.field16)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -313,7 +313,7 @@ class Search extends Component {
                                     <div className="grid-item">
                                         <div className="box-light-anomalies box-light-green-dark">
                                             <span className="box-title">{selectedCity.field22}</span>
-                                            <span className="box-value">10</span>
+                                            <span className="box-value">{Math.round(selectedCity.field27)}</span>
                                         </div>
                                     </div>
                                     <div className="grid-item">
@@ -325,7 +325,7 @@ class Search extends Component {
                                     <div className="grid-item">
                                         <div className="box-light-anomalies box-light-green-light">
                                             <span className="box-title">{selectedCity.field14}</span>
-                                            <span className="box-value">10</span>
+                                            <span className="box-value">{Math.round(selectedCity.field19)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -353,17 +353,15 @@ class Search extends Component {
                                     }}/>
                             </h2>
                             <p className="center description-container block-para">Identifier des territoires mal
-                                couverts
-                                par
-                                une offre de
-                                service d'information ou des populations qui auront des difficultés à comprendre
+                                couverts par une offre de service d'information ou des populations qui auront des
+                                difficultés à comprendre
                                 l'information.</p>
                             <div className="grid-container block">
                                 <div className="grid-content">
                                     <div className="grid-item">
                                         <div className="box-light-anomalies box-light-green-dark">
                                             <span className="box-title">{selectedCity.field22}</span>
-                                            <span className="box-value">10</span>
+                                            <span className="box-value">{Math.round(selectedCity.field26)}</span>
                                         </div>
                                     </div>
                                     <div className="grid-item">
@@ -375,7 +373,7 @@ class Search extends Component {
                                     <div className="grid-item">
                                         <div className="box-light-anomalies box-light-green-light">
                                             <span className="box-title">{selectedCity.field14}</span>
-                                            <span className="box-value">10</span>
+                                            <span className="box-value">{Math.round(selectedCity.field18)}</span>
                                         </div>
                                     </div>
                                 </div>
